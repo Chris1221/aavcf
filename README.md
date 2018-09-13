@@ -33,6 +33,7 @@ make
 - `-f / --fasta`: The path to a `.fasta(.gz)` file on the same build as the VCF (i.e. the genomic coordinates are the same).
 - `-l / --log`: Path to a log file to store all information on actions taken.
     - Defaults to `./log.txt`.
+- `-h / --help`: Will unsurprisingly show you the help menu. 
 
 ### Actions
 
