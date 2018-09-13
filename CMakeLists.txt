@@ -4,6 +4,8 @@ project                     (aavcf)
 set                         (CMAKE_CXX_STANDARD 11)
 include_directories         (lib)
 
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/..)
+
 # Use zlib for zstr
 find_package                (ZLIB REQUIRED )
 if ( ZLIB_FOUND )
