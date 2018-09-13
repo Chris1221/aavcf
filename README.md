@@ -13,7 +13,8 @@ aavcf   -v your.vcf(.gz) \
         -f your.fasta(.gz) \
         -l your.log \
 ```
-  
+ 
+I've also provided `vcf`, `vcf_line`, and `fasta` classes in `fasta.cpp/.h` for extensibility. Each of these have a `read`,`write`, and `get_allele` (either for a particular entry or position) methods and are just abstractions of `std::vector` and `std::string` read in directly from data.
   
 ### Installation
 
@@ -44,6 +45,28 @@ make
 3. Uninformative allele (`UnInfo` in log): The ancestral allele is unknown, so derived state cannot be found. Code all alleles to `0`.
 4. Different alleles (`DifAlt` in log): The ancestral allele is neither the reference nor the alternative, so no information is known. Code all alleles to `0`. 
 
+
+#### C++ Class usage
+
+To construct a `fasta`:
+
+```{c++}
+fasta new (std::string path_to_fasta);
+```
+
+- `new.get_allele(unsigned int pos)` will retrieve an allele at a position.
+
+To construct a `vcf`
+
+```{c++}
+vcf new (std::string path_to_vcf, char delim = '\t')
+```
+
+- `new.entries` is a `std::vector<vcf_line>`, so the `n`th variant is retrieved with `new.entries[i]`.
+- Each entry in the VCF for each variant is mutable and can be accessed by its standard name: `new.entries[i].id = "rs1"`.
+- To write the VCF out, including meta data, simply call the `new.write(std::string path)` method. 
+
+
 ### Notes, TODO
 
 There are a few things left to do before release. 
@@ -51,6 +74,7 @@ There are a few things left to do before release.
 - Properly scan file names to see if its gzipped or not.
 - Scan for phased or unphased and use the correct delimiter. 
 - Multi sample VCFs. 
+
 
 
 
