@@ -1,4 +1,4 @@
-### A tiny `C++11` tool for recoding alleles in a VCF. 
+### A tiny tool for recoding alleles in a VCF. 
 
 This aims to be an easy way to recode alleles from major/minor to ancestral/derived. You only need:
 
