@@ -1,5 +1,4 @@
-# `aavcf`
-## A tiny `C++11` tool for recoding alleles in a VCF. 
+### A tiny `C++11` tool for recoding alleles in a VCF. 
 
 This aims to be an easy way to recode alleles from major/minor to ancestral/derived. You only need:
 
@@ -16,7 +15,7 @@ aavcf   -v your.vcf(.gz) \
  
 I've also provided `vcf`, `vcf_line`, and `fasta` classes in `fasta.cpp/.h` for extensibility. Each of these have a `read`,`write`, and `get_allele` (either for a particular entry or position) methods and are just abstractions of `std::vector` and `std::string` read in directly from data.
   
-### Installation
+#### Installation
 
 *Short version*: Same as any project build on `CMake`.
 
@@ -27,7 +26,7 @@ cd src; cmake
 make
 ```
 
-### Usage Flags
+#### Usage Flags
 
 - `-v / --vcf`: The path to a `.vcf(.gz)` file in `4.1-4.3` file format. 
     - Currently only one sample VCFs are acceptable input.
@@ -65,16 +64,6 @@ vcf new (std::string path_to_vcf, char delim = '\t')
 - `new.entries` is a `std::vector<vcf_line>`, so the `n`th variant is retrieved with `new.entries[i]`.
 - Each entry in the VCF for each variant is mutable and can be accessed by its standard name: `new.entries[i].id = "rs1"`.
 - To write the VCF out, including meta data, simply call the `new.write(std::string path)` method. 
-
-
-### Notes, TODO
-
-There are a few things left to do before release. 
-
-- Properly scan file names to see if its gzipped or not.
-- Scan for phased or unphased and use the correct delimiter. 
-- Multi sample VCFs. 
-
 
 
 
