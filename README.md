@@ -22,9 +22,11 @@ I've also provided `vcf`, `vcf_line`, and `fasta` classes in `fasta.cpp/.h` for 
 *Slightly longer version*: 
 
 ```{sh}
-cd src; cmake
+mkdir build; cd build; cmake
 make
 ```
+
+Creating an empty `build` directory allows you to easily delete all the `CMake` build instructions if you so desire without a fresh clone.
 
 #### Usage Flags
 
